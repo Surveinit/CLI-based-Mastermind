@@ -33,7 +33,7 @@ def instructions
 end
 
   def play
-    p @secret_code = SecretCode.new.code
+    @secret_code = SecretCode.new.code
     (1..10).each do |row|
 
       puts " > Enter your guesses Mister! ".colorize(:color => :black, :background => :light_green)

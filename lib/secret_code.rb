@@ -8,4 +8,4 @@ end
 
 
 # Testing
-code = SecretCode.new.code
+# code = SecretCode.new.code
