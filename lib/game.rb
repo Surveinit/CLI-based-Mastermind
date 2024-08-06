@@ -26,15 +26,15 @@ def instructions
     7. The game ends when you either guess the correct code or use all 10 turns.
     8. Have fun and good luck!
 
-    If you are ready, Just smash that ENTER key!
+    *Breathe* If you are ready, Just smash that ENTER key!
   HEREDOC
   
   gets
 end
 
   def play
+    p @secret_code = SecretCode.new.code
     (1..10).each do |row|
-      p @secret_code = SecretCode.new.code
 
       puts " > Enter your guesses Mister! ".colorize(:color => :black, :background => :light_green)
       @user_guess = Player.new.user_guess
@@ -57,11 +57,11 @@ end
       end
 
     end
-    puts " YOU LOSE ".colorize(:color => :black, :background => :light_red)
+    puts " YOU LOSE".colorize(:color => :black, :background => :light_red)
   end
 end
 
 
 # Testing
-game = Game.new
-game.play
+# game = Game.new
+# game.play

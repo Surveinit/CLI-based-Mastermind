@@ -1,7 +1,7 @@
 class Player
   attr_reader :guess
   def user_guess
-    @guess = gets.chomp.split(" ")
+    @guess = gets.chomp.split(" ").uniq
   end
 end
 
