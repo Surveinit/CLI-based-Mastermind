@@ -45,7 +45,7 @@ end
 
 
 # Testing correct_position()
-guess1 = Guess.new
-p guess1.correct_position(["red", "green", "blue"], ["white", "orange", "red"])    #0
-p guess1.correct_position(["red", "green", "blue"], ["red", "orange", "black"])    #1
-p guess1.correct_position(["red", "green", "blue"], ["red", "green", "white"])     #2
+# guess1 = Guess.new
+# p guess1.correct_position(["red", "green", "blue"], ["white", "orange", "red"])    #0
+# p guess1.correct_position(["red", "green", "blue"], ["red", "orange", "black"])    #1
+# p guess1.correct_position(["red", "green", "blue"], ["red", "green", "white"])     #2

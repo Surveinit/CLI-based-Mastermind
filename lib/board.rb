@@ -19,17 +19,16 @@ class Board
   def add_guess(row, guess, feedback)
     @rows[row][:guess] = guess
     @rows[row][:feedback] = feedback
-
   end
 
 end
 
 
 #Testing
-board1 = Board.new
-board1.display_board
-puts ""
+# board1 = Board.new
+# board1.display_board
+# puts ""
 
 # board1.add_guess(1, ["red", "green", "blue"], {correct_position: 1, correct_colors: 0})
-board1.add_guess(1, Player.new.user_guess, {correct_position: 1, correct_colors: 0})
-board1.display_board
+# board1.add_guess(2, ["blue", "green", "white"], {correct_position: 1, correct_colors: 0})
+# board1.display_board

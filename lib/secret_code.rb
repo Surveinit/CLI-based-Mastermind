@@ -8,5 +8,4 @@ end
 
 
 # Testing
-# code = SecretCode.new
-# p code.code
+code = SecretCode.new.code
