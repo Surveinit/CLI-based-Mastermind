@@ -2,6 +2,7 @@ require_relative "secret_code"
 require_relative "player"
 require_relative "guess"
 require_relative "board"
+require "colorize"
 
 
 class Game 
@@ -35,7 +36,7 @@ end
     (1..10).each do |row|
       p @secret_code = SecretCode.new.code
 
-      puts "Enter your guesses Mister!"
+      puts " > Enter your guesses Mister! ".colorize(:color => :black, :background => :light_green)
       @user_guess = Player.new.user_guess
       # Feedback
       @correct_color = Guess.new.correct_color(@user_guess, @secret_code)
@@ -51,12 +52,12 @@ end
 
       # Win check
       if @correct_position == 4
-        puts "YOU WON in #{row} guess."
+        puts " YOU WON in #{row} guess. ".colorize(:color => :black, :background => :light_yellow)
         return @wincheck = true
       end
 
     end
-    puts "YOU LOSE"
+    puts " YOU LOSE ".colorize(:color => :black, :background => :light_red)
   end
 end
 
