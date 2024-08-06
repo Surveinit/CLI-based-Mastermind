@@ -7,5 +7,5 @@ end
 
 
 # Testing
-guess1 = Player.new
-p guess1.user_guess
+# guess1 = Player.new
+# p guess1.user_guess
