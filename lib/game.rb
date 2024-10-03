@@ -28,7 +28,6 @@ def instructions
 
     *Breathe* If you are ready, Just smash that ENTER key!
   HEREDOC
-  
   gets
 end
 
@@ -55,12 +54,11 @@ end
         puts " YOU WON in #{row} guess. ".colorize(:color => :black, :background => :light_yellow)
         return @wincheck = true
       end
-
     end
     puts " YOU LOSE".colorize(:color => :black, :background => :light_red)
+    puts @secret_code
   end
 end
-
 
 # Testing
 # game = Game.new
