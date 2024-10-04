@@ -1,8 +1,8 @@
-require_relative "secret_code"
-require_relative "player"
-require_relative "guess"
-require_relative "board"
-require "colorize"
+require_relative 'secret_code'
+require_relative 'player'
+require_relative 'guess'
+require_relative 'board'
+require 'colorize'
 
 class Game
   def initialize
@@ -35,19 +35,19 @@ class Game
   def play
     @secret_code = SecretCode.new.code
     (1..10).each do |row|
-      puts(" > Enter your guesses Mister! ".colorize(color: :black, background: :light_green))
+      puts(' > Enter your guesses Mister! '.colorize(color: :black, background: :light_green))
       @user_guess = Player.new.user_guess
       # Feedback
       @correct_color = Guess.new.correct_color(@user_guess, @secret_code)
       @correct_position = Guess.new.correct_position(@user_guess, @secret_code)
 
       # Add info on board
-      @board.add_guess(row, @user_guess, {correct_position: @correct_position, correct_colors: @correct_color})
+      @board.add_guess(row, @user_guess, { correct_position: @correct_position, correct_colors: @correct_color })
 
       # Display board
-      puts("~" * 80)
+      puts('~' * 80)
       @board.display_board
-      puts("~" * 80)
+      puts('~' * 80)
 
       # Win check
       if @correct_position == 4
@@ -56,7 +56,7 @@ class Game
       end
     end
 
-    puts(" YOU LOSE".colorize(color: :black, background: :light_red))
+    puts(' YOU LOSE'.colorize(color: :black, background: :light_red))
     puts(@secret_code)
   end
 end

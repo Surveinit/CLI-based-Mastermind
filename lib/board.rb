@@ -1,11 +1,11 @@
-require_relative "player"
-require_relative "secret_code"
+require_relative 'player'
+require_relative 'secret_code'
 
 class Board
   def initialize
     @rows = {}
     (1..10).each do |i|
-      @rows[i] = {guess: [nil, nil, nil, nil], feedback: {correct_position: 0, correct_colors: 0}}
+      @rows[i] = { guess: [nil, nil, nil, nil], feedback: { correct_position: 0, correct_colors: 0 } }
     end
   end
 
@@ -32,4 +32,3 @@ end
 # board1.add_guess(1, ["red", "green", "blue"], {correct_position: 1, correct_colors: 0})
 # board1.add_guess(2, ["blue", "green", "white"], {correct_position: 1, correct_colors: 0})
 # board1.display_board
-

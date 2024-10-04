@@ -1,5 +1,5 @@
-require_relative "player"
-require_relative "secret_code"
+require_relative 'player'
+require_relative 'secret_code'
 
 class Guess
   def correct_color(user_guess, secret_code)
@@ -44,4 +44,3 @@ end
 # p guess1.correct_position(["red", "red", "red"], ["red", "orange", "white"])    #0
 # p guess1.correct_position(["red", "green", "blue"], ["red", "orange", "black"])    #1
 # p guess1.correct_position(["red", "green", "blue"], ["red", "green", "white"])     #2
-

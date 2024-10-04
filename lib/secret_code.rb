@@ -9,4 +9,3 @@ end
 
 # Testing
 # code = SecretCode.new.code
-
