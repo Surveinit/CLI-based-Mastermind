@@ -4,38 +4,38 @@ require_relative "guess"
 require_relative "board"
 require "colorize"
 
-
-class Game 
+class Game
   def initialize
     @wincheck = false
     @board = Board.new
     instructions
   end
 
-def instructions
-  puts <<~HEREDOC
-    Before Playing Mastermind, keep these things in mind:
-    1. Enter your 4 colors guess in a single input with spaces in between.
-    2. You have 10 turns to guess the correct code.
-    3. The possible colors are: red, green, blue, yellow, white, and black.
-    4. Feedback will be provided for each guess:
-       - 'Correct position' indicates the number of colors that are correct and in the right position.
-       - 'Correct colors' indicates the number of correct colors that are in the wrong position.
-    5. No duplicate colors are allowed in a single guess.
-    6. Use the feedback to refine your next guess.
-    7. The game ends when you either guess the correct code or use all 10 turns.
-    8. Have fun and good luck!
+  def instructions
+    puts(
+      <<~HEREDOC
+        Before Playing Mastermind, keep these things in mind:
+        1. Enter your 4 colors guess in a single input with spaces in between.
+        2. You have 10 turns to guess the correct code.
+        3. The possible colors are: red, green, blue, yellow, white, and black.
+        4. Feedback will be provided for each guess:
+           - 'Correct position' indicates the number of colors that are correct and in the right position.
+           - 'Correct colors' indicates the number of correct colors that are in the wrong position.
+        5. No duplicate colors are allowed in a single guess.
+        6. Use the feedback to refine your next guess.
+        7. The game ends when you either guess the correct code or use all 10 turns.
+        8. Have fun and good luck!
 
-    *Breathe* If you are ready, Just smash that ENTER key!
-  HEREDOC
-  gets
-end
+        *Breathe* If you are ready, Just smash that ENTER key!
+      HEREDOC
+    )
+    gets
+  end
 
   def play
     @secret_code = SecretCode.new.code
     (1..10).each do |row|
-
-      puts " > Enter your guesses Mister! ".colorize(:color => :black, :background => :light_green)
+      puts(" > Enter your guesses Mister! ".colorize(color: :black, background: :light_green))
       @user_guess = Player.new.user_guess
       # Feedback
       @correct_color = Guess.new.correct_color(@user_guess, @secret_code)
@@ -45,18 +45,19 @@ end
       @board.add_guess(row, @user_guess, {correct_position: @correct_position, correct_colors: @correct_color})
 
       # Display board
-      puts "~"*80
+      puts("~" * 80)
       @board.display_board
-      puts "~"*80
+      puts("~" * 80)
 
       # Win check
       if @correct_position == 4
-        puts " YOU WON in #{row} guess. ".colorize(:color => :black, :background => :light_yellow)
+        puts(" YOU WON in #{row} guess. ".colorize(color: :black, background: :light_yellow))
         return @wincheck = true
       end
     end
-    puts " YOU LOSE".colorize(:color => :black, :background => :light_red)
-    puts @secret_code
+
+    puts(" YOU LOSE".colorize(color: :black, background: :light_red))
+    puts(@secret_code)
   end
 end
 

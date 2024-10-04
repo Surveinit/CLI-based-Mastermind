@@ -6,3 +6,4 @@ require_relative "lib/secret_code"
 
 game = Game.new
 game.play
+
